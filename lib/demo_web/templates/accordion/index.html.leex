@@ -1,0 +1,11 @@
+ <h2>MyAIDA Fragen &amp; Antworten</h2>
+
+   <section class="faq-accordion">
+      <%= for faq <- @list_faq do %>
+          <div class="faq-accordion-item">
+          <input type=<%= @checkbox && "checkbox" || "radio" %> name="example_accordion" id=<%="section#{faq.id}"%> class="faq-accordion-input">
+          <label for=<%="section#{faq.id}"%> class="faq-accordion-label"><%= faq.title %></label>
+          <div class="faq-accordion-content"><%=raw  faq.body %></div>
+          </div>
+      <%= end %>
+   </section>

@@ -1,0 +1,66 @@
+/* This file is for your main application css. */
+@import "./phoenix.css";
+
+/* LiveView specific classes for your customizations */
+.faq-accordion {
+  width: 100%;
+  max-width: calc(866px + 20%);
+  border-radius: 5px;
+  border: solid 1px rgb(229,229,229);
+  overflow: hidden;
+}
+
+
+.faq-accordion-label {
+  display: block;
+  color: rgb(61,162,220);
+  border-bottom: solid 1px rgb(229,229,229);
+  margin-bottom: 0;
+  padding: 14px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: background 0.1s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill: rgb(61,162,220);" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+  }
+}
+
+.faq-accordion-content {
+  border-bottom: solid 0px rgb(229,229,229);
+  line-height: 1.6;
+  font-size: 14px;
+  padding: 0 3em;
+  max-height: 0;
+  overflow: hidden;
+  transition: all  0.3s ease-in-out;
+}
+
+.faq-accordion-input {
+  display: none !important ;
+
+  &:checked ~ .faq-accordion-content {
+    max-height: 100vh;
+    padding: 3em;
+    border-bottom: solid 1px rgb(229,229,229);
+  }
+
+  &:checked ~ .faq-accordion-label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+  }
+}
